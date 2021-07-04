@@ -1,1 +1,1 @@
-@@include('libs/smoothScroll.js', {})
+
