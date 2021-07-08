@@ -1,5 +1,7 @@
 
 //====================================================================================================
+@use "sass:math";
+
 .footer {
     // .footer__container
     &__container {
@@ -32,7 +34,7 @@
     }
     // .footer__logo
     &__logo {
-        margin: 0px 0px 16px/24px * 1em 0px;
+        margin: 0px 0px math.div(16px, 24px) * 1em 0px;
     }
     // .footer__text
     &__text {
@@ -97,7 +99,7 @@
     &__title {
         cursor: default;
         @media (min-width: $md3+px) {
-            margin: 0px 0px 16px/24px * 1em 0px;        
+            margin: 0px 0px math.div(16px, 24px) * 1em 0px;        
         }
         ._init &{
             display: flex;
@@ -143,7 +145,7 @@
 .subscribe {
     // .subscribe__title
     &__title {
-        margin: 0 0 16px/24px * 1em 0;
+        margin: 0 0 math.div(16px, 24px) * 1em 0;
     }
     // .subscribe__form
     &__form {

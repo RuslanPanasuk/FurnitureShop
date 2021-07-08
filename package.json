@@ -28,5 +28,8 @@
 		"sass": "latest",
 		"gulp-ttf2woff": "latest",
 		"gulp-ttf2woff2": "latest"
+	},
+	"dependencies": {
+		"sass-loader": "^12.1.0"
 	}
 }
