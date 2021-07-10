@@ -236,6 +236,11 @@ body._lock {
   min-height: 48px;
 }
 
+.btn_white {
+  color: #E89F71;
+  background-color: #fff;
+}
+
 .select {
   position: relative;
 }
@@ -1705,6 +1710,51 @@ body.ie ._ibg img {
           flex: 1 1 auto;
 }
 
+.advantages {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.advantages__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.advantages__item {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  padding: 15px 0;
+  -ms-grid-rows: auto auto;
+  -ms-grid-columns: 85px 1fr;
+      grid-template: auto auto/85px 1fr;
+}
+
+.advantages__icon {
+  text-align: center;
+  -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-row-span: 2;
+  grid-row: span 2;
+}
+
+.advantages__title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  margin-bottom: 0.1111111111em;
+}
+
+.advantages__text {
+  line-height: 150%;
+  color: #898989;
+}
+
 @media (min-width: 767.98px) {
   .menu__list {
     display: -webkit-box;
@@ -1950,6 +2000,14 @@ body.ie ._ibg img {
   .slider-main__price {
     font-size: calc(16px + 4 * ((100vw - 320px) / 950));
   }
+
+  .advantages {
+    padding-top: calc(30px + 58 * ((100vw - 320px) / 950));
+  }
+
+  .advantages {
+    padding-bottom: calc(30px + 58 * ((100vw - 320px) / 950));
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -2028,6 +2086,10 @@ body.ie ._ibg img {
 
   .controls-slider-main__arrows {
     display: none;
+  }
+
+  .advantages__item {
+    min-width: 280px;
   }
 }
 
@@ -2182,6 +2244,16 @@ body.ie ._ibg img {
   .main-slider__body {
     padding: 50px 0px 0px 0px;
   }
+
+  .advantages__item {
+    -ms-grid-rows: auto auto;
+    -ms-grid-columns: auto 1fr;
+        grid-template: auto auto/auto 1fr;
+  }
+
+  .advantages__icon {
+    padding-right: 15px;
+  }
 }
 
 @media (max-width: 767.98px) and (max-width: 1270px) {
@@ -2215,6 +2287,11 @@ body.ie ._ibg img {
 }
 
 @media (any-hover: hover) {
+  .btn_white:hover {
+    color: #fff;
+    background-color: #E89F71;
+  }
+
   .slider-arrow:hover {
     color: #fff;
     background-color: #e89f71;
