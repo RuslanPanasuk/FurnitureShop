@@ -75,7 +75,7 @@ body {
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 //@import "datepicker";
-//@import "lightgallery";
+@import "lightgallery";
 //@import "pagging";
 @import "popup";
 @import "header";
@@ -90,6 +90,12 @@ body {
 	&__main-slider {
 	}
 	&__products {
+	}
+	&__rooms {
+	}
+	&__tips {
+	}
+	&__furniture {
 	}
 }
 //===================================================================================================================================
@@ -383,6 +389,10 @@ body {
 	&__more {
 		border: 1px solid $orangeColor;
 		min-width: 245px;
+		&._hold {
+			opacity: 0.2;
+			cursor: default;
+		}
 	}
 }
 
@@ -514,6 +524,10 @@ body {
 		&:not(:last-child){
 			margin-bottom: 24px;
 		}
+		&._hold {
+			opacity: 0.2;
+			cursor: default;
+		}
 	}
 	// .actions-product__link
 	&__link {
@@ -537,8 +551,415 @@ body {
 
 //====================================================================================================
 
+.rooms {
+	background: #fcf8f3;
+	@include adaptiv-value("padding-top", 44, 30, 1);
+	@include adaptiv-value("padding-bottom", 44, 30, 1);
+	// .rooms__container
+	&__container {
+		@media (min-width: $md2+px) {
+			display: flex;		
+		}
+	}
+	// .rooms__body
+	&__body {
+		flex: 0 0 math.div(465, 1240)*100%;
+		position: relative;
+		z-index: 5;
+		align-self: center;
+		@media (min-width: $md2+px) {
+			@include adaptiv-value("padding-right", 80, 30, 1);
+		}
+		@media (max-width: $md2+px) {
+			margin-bottom: 30px;
+		}
+	}
+	// .rooms__title
+	&__title {
+		&:not(:last-child){
+			margin-bottom: math.div(8px, 40px)*1em;
+		}
+		text-align: left;
+	}
+	// .rooms__text
+	&__text {
+		line-height: 150%;
+		font-weight: 500;
+		&:not(:last-child){
+			margin-bottom: 24px;
+		}
+	}
+	// .rooms__button
+	&__button {
+		background: $orangeColor;
+		color: #fff;
+		min-width: 180px;
+		@media (any-hover: hover){
+			&:hover{
+				background-color: #8d6146;
+			}
+		}
+	}
+	// .rooms__slider
+	&__slider {
+		flex: 1 1 auto;
+		min-width: 0;
+		align-self: flex-start;
+		@media (max-width: $md4+px) {
+			margin: 0 -15px;
+		}
+	}
+}
+
+.slider-rooms {
+	position: relative;
+	// .slider-rooms__body
+	&__body {
+		overflow: visible;
+		position: relative;
+		&::before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100vw;
+			background-color: #fcf8f3;
+			z-index: 2;
+			transform: translate(-100%, 0px);
+		}
+	}
+	// .slider-rooms__slide
+	&__slide {
+		width: 372px;
+		position: relative;
+		overflow: hidden;
+		@include adaptiv-value("min-height", 585, 400, 1);
+		&.swiper-slide-active {
+			.slider-rooms__image{
+				height: 100%;
+			}
+		}
+		@media (max-width: $md4+px) {
+			width: 100%;
+		}
+	}
+	// .slider-rooms__image
+	&__image {
+		transition: height 0.8s ease 0s;
+		height: 100%;
+		@media (min-width: $md3+px) {
+			height: 83%;
+		}
+	}
+	// .slider-rooms__content
+	&__content {
+		position: absolute;
+		color: inherit;
+		max-width: 240px;
+		@include adaptiv-value("left", 24, 15, 1);
+		@include adaptiv-value("bottom", 24, 15, 1);
+		@include adaptiv-value("padding", 32, 15, 1);
+		background: rgba(255, 255, 255, 0.9);
+		/*Если браузер поддерживает backdrop-filter */
+		@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+			background: rgba(255, 255, 255, 0.72);
+			backdrop-filter: blur(31px);
+		}
+		&::before{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			transform: translate(100%, 0px);
+			width: 48px;
+			height: 48px;
+			background-color: $orangeColor;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	// .slider-rooms__label
+	&__label {
+		font-weight: 600;
+		@include adaptiv-value("font-size", 28, 24, 1);
+	}
+	// .slider-rooms__title
+	&__title {
+	}
+	// .slider-rooms__arrows
+	&__arrows {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translate(0px, -50%);
+		width: calc(100% - 48px);
+		left: 24px;
+		z-index: 5;
+		justify-content: space-between;
+		@media (min-width: $md1+px) {
+			width: calc(100% + 48px);
+			left: -24px;		
+		}
+	}
+	// .slider-rooms__dotts
+	&__dotts {
+		@media (min-width: $md3+px) {
+			position: absolute;
+			bottom: 30px;
+			width: 100%;
+			left: 396px;
+		}
+		@media (max-width: $md3+px) {
+			justify-content: center;
+			padding-top: 15px;		
+		}
+	}
+}
+.label-slider {
+	display: grid;
+	color: $darkGrayColor;
+	gap: 8px;
+	align-items: center;
+	justify-content: start;
+	grid-template-columns: auto 27px auto;
+	&:not(:last-child){
+		margin-bottom: 8px;
+	}
+	// .label-slider__number
+	&__number {
+	}
+	// .label-slider__line
+	&__line {
+		height: 1px;
+		background-color: $darkGrayColor;
+	}
+	// .label-slider__text
+	&__text {
+	}
+}
+.slider-arrows {
+}
+.slider-arrow {
+	// .slider-arrow_white
+	&_white {
+	}
+	// .slider-arrow_prev
+	&_prev {
+	}
+	// .slider-arrow_next
+	&_next {
+	}
+}
+
 
 //====================================================================================================
 
 
+.tips {
+	@include adaptiv-value("padding-top", 44, 30, 1);
+	@include adaptiv-value("padding-bottom", 44, 30, 1);
+	// .tips__container
+	&__container {
+	}
+	// .tips__title
+	&__title {
+		margin-bottom: math.div(32px, 40px)*1em;
+	}
+	// .tips__slider
+	&__slider {
+	}
+}
+
+.slider-tips {
+	position: relative;
+	// .slider-tips__body
+	&__body {
+		@include adaptiv-value("margin-left", -32, -15, 1);
+		@include adaptiv-value("margin-right", -32, -15, 1);
+		@include adaptiv-value("padding", 32, 15, 1);
+	}
+	// .slider-tips__slide
+	&__slide {
+		display: flex;
+		flex-direction: column;
+		transition: box-shadow 0.3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+			}
+		}
+	}
+	// .slider-tips__image
+	&__image {
+		padding-bottom: math.div(251, 391)*100%;
+	}
+	// .slider-tips__content
+	&__content {
+		display: flex;
+		flex-direction: column;
+		padding: 15px;
+		flex: 1 1 auto;
+		align-items: flex-start;
+	}
+	// .slider-tips__title
+	&__title {
+		flex: 1 1 auto;
+		color: inherit;
+		font-weight: 600;
+		line-height: 120%;
+		@include adaptiv-value("font-size", 24, 18, 1);
+		transition: all 0.3s ease 0s;
+		&:not(:last-child){
+			margin-bottom: math.div(8px, 24px);
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color: $orangeColor;
+			}
+		}
+	}
+	// .slider-tips__text
+	&__text {
+		color: $grayColor;
+		font-size: 14px;
+		line-height: 150%;
+	}
+	// .slider-tips__dotts
+	&__dotts {
+		@include adaptiv-value("padding-top", 8, 0, 1);
+		justify-content: center;
+	}
+	// .slider-tips__arrows
+	&__arrows {
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		transform: translate(0px, -50%);
+		width: calc(100% - 48px);
+		left: 24px;
+		z-index: 5;
+		justify-content: space-between;
+		@media (min-width: $md1+px) {
+			width: calc(100% + 48px);
+			left: -24px;		
+		}
+		@media (max-width: $md3+px) {
+			display: none;
+		}
+	}
+}
+
+.slider-arrow {
+	// .slider-arrow_white
+	&_white {
+	}
+	// .slider-arrow_prev
+	&_prev {
+	}
+	// .slider-arrow_next
+	&_next {
+	}
+}
+
+
 //====================================================================================================
+
+.furniture {
+	@include adaptiv-value("padding-bottom", 85, 40, 1);
+	// .furniture__container
+	&__container {
+	}
+	// .furniture__label
+	&__label {
+		text-align: center;
+		color: $darkGrayColor;
+		line-height: 150%;
+		@include adaptiv-value("font-size", 20, 16, 1);
+		&:not(:last-child){
+			margin-bottom: math.div(8px, 20px)*1em;
+		}
+	}
+	// .furniture__title
+	&__title {
+		margin-bottom: math.div(32px, 40px)*1em;
+	}
+	// .furniture__body
+	&__body {
+		position: relative;
+		@media (any-hover: none){
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+	// .furniture__items
+	&__items {
+		display: grid;
+		grid-template-columns: auto;
+		grid-auto-flow: column;
+		align-items: center;
+		gap: 16px;
+		@media (any-hover: hover){
+			justify-content: center;
+		}
+	}
+	// .furniture__column
+	&__column {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0 -8px;
+		&:first-child{
+			justify-content: flex-end;
+		}
+	}
+	// .furniture__row
+	&__row {
+		display: inline-grid;
+		grid-template-columns: auto;
+		grid-auto-flow: column;
+		gap: 16px;
+		padding: 0 8px;
+		&:not(:last-child){
+			margin-bottom: 16px;
+		}
+	}
+}
+
+.row-furniture {
+	// .row-furniture_left-top
+	&_left-top {
+		justify-content: end;
+		align-items: end;
+	}
+	// .row-furniture_left-bottom
+	&_left-bottom {
+		justify-content: end;
+		align-items: start;
+	}
+	// .row-furniture_center
+	&_center {
+		display: block;
+	}
+	&_right-top{
+		align-items: end;
+	}
+	&_right-bottom{
+		align-items: start;
+	}
+	// .row-furniture__item
+	&__item {
+		@media (any-hover: hover){
+			img {
+				transition: all 0.8s ease 0s;
+				filter: grayscale(1);
+			}
+			&:hover{
+				img {
+					filter: grayscale(0);
+				}
+			}
+		}
+	}
+}
