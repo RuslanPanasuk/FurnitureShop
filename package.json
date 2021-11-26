@@ -21,7 +21,7 @@
 		"imagemin-webp": "latest",
 		"transform-runtime": "0.0.0",
 		"webp-converter": "2.2.3",
-		"gulp-imagemin": "latest",
+		"gulp-imagemin": "^6.2.0",
 		"gulp-newer": "latest",
 		"gulp-plumber": "latest",
 		"gulp-rename": "latest",
@@ -30,6 +30,7 @@
 		"gulp-ttf2woff2": "latest"
 	},
 	"dependencies": {
+		"esm": "^3.2.25",
 		"sass-loader": "^12.1.0"
 	}
 }
